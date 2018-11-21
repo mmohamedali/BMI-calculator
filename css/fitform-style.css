@@ -1,0 +1,284 @@
+/* Index of Contents
+--------------------------------------------------------------------------------
+  1.  Custom Font
+  2.  Basic Reset(Remove these if you have your own resets already)
+  3.  Form Styles - fieldset, Input, textarea, select, button, headings.
+  4.  Progress bar
+  5.  Tables
+  6.  Callouts
+------------------------------------------------------------------------------*/
+
+/*custom font*/
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    /*Image only BG fallback*/
+    background: url('bgpattern/pattern.png');
+    /*background = gradient + image pattern combo*/
+    background: linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)), url('bgpattern/pattern.png');
+}
+
+#formcontainer {
+    font-family: montserrat, arial, verdana;
+}
+
+
+/* form styles */
+
+#fitform {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+@media only screen and (max-width: 1024px) {
+  #fitform {
+      width: 600px;
+      margin: 30px auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #fitform {
+      width: 100%;
+      margin: 30px auto;
+  }
+}
+
+
+
+#fitform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 3px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 20px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+    /* stacking fieldsets above each other */
+    position: absolute;
+}
+
+
+/* Hide all except first fieldset */
+
+#fitform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+
+/* Input Fields*/
+
+#fitform input, #fitform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#fitform select {
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAA1klEQVRoQ+2VQQrDMBADNz/LU/qzkp8GH3IplCqeFcVEPq+VHU3AWy1+tsX3rwD822AMxABsIL8QLBBfjwFcIQyIAVggvh4DuEIYEAOwQHw9BnCFMODRBl5V9YYFXtePqhp5tw810AExvfygpQAjg0Cg5bsAZiHw8p0AdyFalu8GUCHalncA/IJoXd4F8A2ifXknwCeEZXk3wAWxzz5SyqvW8Q4o37HNBMBWrRgcA2JRtrEYsFUrBseAWJRtLAZs1YrBMSAWZRuLAVu1YnAMiEXZxpY3cAJEEBMx0xTQcwAAAABJRU5ErkJggg==) 96% / 15% no-repeat #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#fitform #feet, #fitform #inches, #fitform #weight, #fitform #weightunits {
+    width: 49% !important;
+}
+
+#fitform select::-ms-expand {
+    display: none;
+    /* remove default arrow in IE 10 and 11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+
+@media screen and (min-width:0\0) {
+    #fitform select {
+        background: none\9;
+        padding: 5px\9;
+    }
+}
+
+
+/* Buttons */
+
+#fitform .action-button {
+    width: 90px;
+    background: #27AE60;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#fitform .action-button:hover, #fitform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+#fitform p {
+    text-align: left;
+}
+
+
+/* headings */
+
+#fitform .fs-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+#fitform .fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+/* Progress Bar above the form */
+
+#fitform #progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#fitform #progressbar li {
+    list-style-type: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 33.33%;
+    float: left;
+    position: relative;
+}
+
+#fitform #progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 20px;
+    line-height: 20px;
+    display: block;
+    font-size: 10px;
+    color: #333;
+    background: white;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+
+
+/* progressbar connectors */
+
+#fitform #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1;
+    /*put it behind the numbers*/
+}
+
+#fitform #progressbar li:first-child:after {
+    /* connector not needed before the first step */
+    content: none;
+}
+
+
+/* marking active/completed steps green */
+
+
+/* The number of the step and the connector before it = green */
+
+#fitform #progressbar li.active:before, #fitform #progressbar li.active:after {
+    background: #27AE60;
+    color: white;
+}
+
+
+/* Table of BMI Reference in Step 2 */
+
+#fitform table, th, td {
+    border: 1px solid black;
+}
+
+#fitform table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#fitform th, td {
+    padding: 2px;
+}
+
+#fitform tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+#fitform th {
+    text-transform: uppercase;
+}
+
+
+/* BMI Results Callouts in Step 2*/
+
+#fitform .callout.callout-danger {
+    background-color: #dd4b39 !important;
+    color: #fff !important;
+    border-color: #c23321;
+}
+
+#fitform .callout.callout-warning {
+    background-color: #f39c12 !important;
+    color: #fff !important;
+    border-color: #c87f0a;
+}
+
+#fitform .callout.callout-success {
+    background-color: #00a65a !important;
+    color: #fff !important;
+    border-color: #00733e;
+}
+
+#fitform .callout {
+    border-radius: 3px;
+    margin: 0 0 20px 0;
+    padding: 15px;
+    border-left: 5px solid #eee;
+}
